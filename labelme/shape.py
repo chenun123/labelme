@@ -87,6 +87,9 @@ class Shape(object):
             return self.points.pop()
         return None
 
+    def deletePoint(self, i):
+        return  self.points.pop(i)
+
     def insertPoint(self, i, point):
         self.points.insert(i, point)
 

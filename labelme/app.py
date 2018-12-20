@@ -321,7 +321,12 @@ class MainWindow(QtWidgets.QMainWindow, WindowMixin):
                                'Undo last drawn point', enabled=False)
         addPoint = action('Add Point to Edge', self.canvas.addPointToEdge,
                           None, 'edit', 'Add point to the nearest edge',
-                          enabled=False)
+                          enabled=True)
+        addPointS = action('Add Pont to Edge S', self.toggleAddPoint, shortcuts['polygon_add_point'], 'edit',
+                      'add Point to Edge', enabled=True)
+
+        delPointS = action('delet Point selected', self.toggleDelPoint, shortcuts['polygon_del_point'], 'edit',
+                      'delete Point selected', enabled=True)
 
         undo = action('Undo', self.undoShapeEdit, shortcuts['undo'], 'undo',
                       'Undo last add and edit of shape', enabled=False)
@@ -426,7 +431,7 @@ class MainWindow(QtWidgets.QMainWindow, WindowMixin):
             openNextImg=openNextImg, openPrevImg=openPrevImg,
             fileMenuActions=(open_, opendir, save, saveAs, close, quit),
             tool=(),
-            editMenu=(edit, copy, delete, None, undo, undoLastPoint,
+            editMenu=(edit, copy, delete, None, undo, undoLastPoint, None, addPointS, delPointS,
                       None, color1, color2),
             # menu shown at right click
             menu=(
@@ -683,6 +688,11 @@ class MainWindow(QtWidgets.QMainWindow, WindowMixin):
         self.recentFiles.insert(0, filename)
 
     # Callbacks
+    def toggleAddPoint(self):
+        self.canvas.addPointToEdge()
+
+    def toggleDelPoint(self):
+        self.canvas.deletePointToEdge()
 
     def undoShapeEdit(self):
         self.canvas.restoreShape()

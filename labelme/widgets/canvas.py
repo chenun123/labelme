@@ -261,10 +261,20 @@ class Canvas(QtWidgets.QWidget):
             self.hVertex, self.hShape, self.hEdge = None, None, None
         self.edgeSelected.emit(self.hEdge is not None)
 
+    def deletePointToEdge(self):
+        if self.hShape is None or self.hVertex is None:
+            return
+        shape, index = self.hShape, self.hVertex
+        self.hVertex = None
+        shape.deletePoint(index)
+
+
     def addPointToEdge(self):
         if (self.hShape is None and
                 self.hEdge is None and
                 self.prevMovePoint is None):
+            return
+        if (self.hEdge is None or self.hShape is None):
             return
         shape = self.hShape
         index = self.hEdge

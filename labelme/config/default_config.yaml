@@ -1,4 +1,4 @@
-auto_save: false
+auto_save: true
 display_label_popup: true
 store_data: true
 keep_prev: false
@@ -59,17 +59,19 @@ shortcuts:
   fit_width: Ctrl+Shift+F
 
   add_point: Ctrl+Shift+P
-  create_polygon: Ctrl+N
-  create_rectangle: Ctrl+R
+  create_polygon: [N, Ctrl+N]
+  create_rectangle: [R, Ctrl+R]
   create_circle: null
   create_line: null
   create_point: null
   create_linestrip: null
-  edit_polygon: Ctrl+J
-  delete_polygon: Delete
+  edit_polygon: [J, Ctrl+J]
+  delete_polygon: [T, Delete]
   duplicate_polygon: Ctrl+D
   undo: Ctrl+Z
   undo_last_point: [Ctrl+Z, Backspace]
   edit_label: Ctrl+E
   edit_line_color: Ctrl+L
   edit_fill_color: Ctrl+Shift+L
+  polygon_add_point: [W, Ctrl+P]
+  polygon_del_point: E
