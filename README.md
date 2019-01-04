@@ -1,3 +1,10 @@
+1.  add verify image feature like labelImg
+2.  can add or del the point for polygon 
+3. adjust some shortcut 
+
+
+
+
 <img src="https://github.com/wkentaro/labelme/blob/master/labelme/icons/icon.png?raw=true" align="right" />
 
 # labelme: Image Polygonal Annotation with Python
